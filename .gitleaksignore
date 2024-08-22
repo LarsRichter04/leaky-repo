@@ -1,0 +1,4 @@
+.bash_profile:generic-api-key:11
+cloud/.credentials:generic-api-key:3
+cloud/.credentials:generic-api-key:6
+cloud/.s3cfg:generic-api-key:2

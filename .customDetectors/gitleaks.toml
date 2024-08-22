@@ -1,0 +1,35 @@
+title = "Gitleaks Config"
+
+[extend]
+useDefault = true # Die Default Konfiguration wird erweitert.
+
+[[rules]]
+id = "special-secret-format"
+description = "Detect Strings like A!C!G!"
+regex = "\\s([A-Z]!)+"
+keywords = [
+    "Special"
+]
+
+[[rules]]
+id = "wp-config"
+description = "Detect Secrets in Wordpress config"
+regex = "define(.{0,20})?(NONCE_SALT|LOGGED_IN_SALT|AUTH_SALT|NONCE_KEY|DB_PASSWORD|AUTH_KEY|SECURE_AUTH_KEY|LOGGED_IN_KEY)(.{0,20})?['|\"].{10,120}['|\"]"
+keywords = [
+    "define"
+]
+
+[[rules]]
+id = "mongo connection String"
+description = "Detect Secrets in Wordpress config"
+regex = "mongodb(?:\\+srv)?:\\/\\/(?:[^:\\/?#]*)(?::[^@\\/?#]*)?@[^\\/?#]+(?:\\/[^\\s?#]*)?(?:\\?[^#\\s]*)?(?:#[^\\s]*)?"
+keywords = [
+    "mongo"
+]
+
+[allowlist]
+paths = [
+    ".reports",
+    ".customDetectors",
+    ".leakyMeta"
+]
