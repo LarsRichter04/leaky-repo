@@ -1,0 +1,4 @@
+.git/
+.reports/
+.leaky-meta/
+.customDetectors/
